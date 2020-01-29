@@ -1,0 +1,278 @@
+/* == Media queries (breakpoint) ===== */
+/* ----------------------------------
+IPAD PORTRAIT
+ -----------------------------------*/
+@media only screen and (max-width: 800px) {
+	#pageone {
+		background-color: rgb(38, 38, 38);
+	}
+	.top {
+		background: black;
+		width: 96%;
+		height: 6%;
+		padding: 2% 2% 2% 2%;
+		float: left;
+	}
+	#logo {
+		width: 20%;
+	}
+	.content {
+		width: 96%;
+		height: 75%;
+		padding: 2%;
+		float: left;
+		background-color: rgb(38, 38, 38);
+	}
+
+	/* navigation bar setting */	
+	.menu {
+		width: 85%;
+		height: 9%;
+		padding: 0 0 0 15%;
+		float: left;
+		background: black;
+		line-height: 1;
+		z-index: 9998;
+	}
+	ul.menu {
+		padding: 0;
+		margin: 0;
+		list-style:none;
+	}
+
+	.menu a {
+		background: url(../img/nav.png) no-repeat 0 0;
+		display: block;
+		height: 120px;
+		text-indent: -5555px;
+		overflow: hidden;
+		
+	}
+	.menu li {
+		float: left;
+		position: relative;
+	}
+
+	* html .menu li * { position: relative;}
+	 .menu li, .menu ul { margin: 0; padding: 0;}
+
+	.menu #butt1 a {
+		background-position: 0 0;
+		width: 180px;
+	}
+	.menu #butt2 a {
+		background-position: -180 0;
+		width: 180px;
+	}
+
+	.menu #butt3 a {
+		background-position: -360 0;
+		width: 180px;
+	}
+
+	.menu #butt4 a {
+		background-position: -540 0;
+		width: 180px;
+	}
+
+	/* setting hover */
+
+	.menu #butt1 a:hover {
+			background-position: 0px -120px;
+			width: 180px;
+	}
+	.menu #butt2 a:hover {
+			background-position: -180px -120px;
+			width: 180px;
+	}
+	.menu #butt3 a:hover {
+			background-position: -360px -120px;
+			width: 180px;
+	}
+	.menu #butt4 a:hover {
+			background-position: -540px -120px;
+			width: 180px;
+	}
+/* setting active */
+	body#pageone .menu #butt1 a {
+		background-position: 0px -120px;
+		width: 180px;
+	}
+	
+	body#pagetwo .menu #butt2 a{
+			background-position: -180px -120px;
+			width: 180px;
+	}
+	body#pagetwo .menu #butt3 a {
+			background-position: -360px -120px;
+			width: 180px;
+	}
+	body#pagethree .menu #butt4 a {
+			background-position: -540px -120px;
+			width: 180px;
+	}
+
+	.footer {
+		width: 96%;
+		height: 1%;
+		padding: 2%;
+		float: left;
+		background: black;
+	}
+	.footer p {
+		color: rgb(38, 38, 38);
+	}
+}
+/* == Mobile default style - Mobile first ==== */
+@media only screen and (max-width: 500px) {
+	#pageone {
+		background-color: rgb(38, 38, 38);
+		font: 95% Arial, Helvetica, sans-serif;
+	}
+	.top {
+		background: black;
+		width: 96%;
+		height: 6%;
+		padding: 2% 2% 2% 2%;
+		float: left;
+	}
+	#logo {
+		width: 30%;
+	}
+	.content {
+		width: 96%;
+		height: 81%;
+		padding: 2%;
+		float: left;
+		background-color: rgb(38, 38, 38);
+	}
+
+/* ---------------------
+ navigation bar setting
+ ------------------ */	
+	.menu {
+		width: 85%;
+		height: 6%;
+		padding: 0 0 0 15%;
+		float: left;
+		background: black;
+		line-height: 1;
+		z-index: 9998;
+	}
+	ul.menu {
+		padding: 0;
+		margin: 0;
+		list-style:none;
+	}
+
+	.menu a {
+		background: url(../img/nav.png) no-repeat 0 0;
+		display: block;
+		height: 120px;
+		text-indent: -5555px;
+		overflow: hidden;
+		
+	}
+	.menu li {
+		float: left;
+		position: relative;
+	}
+
+	* html .menu li * { position: relative;}
+	 .menu li, .menu ul { margin: 0; padding: 0;}
+
+	.menu #butt1 a {
+		background-position: 0 0;
+		width: 180px;
+	}
+	.menu #butt2 a {
+		background-position: -180 0;
+		width: 180px;
+	}
+
+	.menu #butt3 a {
+		background-position: -360 0;
+		width: 180px;
+	}
+
+	.menu #butt4 a {
+		background-position: -540 0;
+		width: 180px;
+	}
+
+	/* setting hover */
+
+	.menu #butt1 a:hover {
+			background-position: 0px -120px;
+			width: 180px;
+	}
+	.menu #butt2 a:hover {
+			background-position: -180px -120px;
+			width: 180px;
+	}
+	.menu #butt3 a:hover {
+			background-position: -360px -120px;
+			width: 180px;
+	}
+	.menu #butt4 a:hover {
+			background-position: -540px -120px;
+			width: 180px;
+	}
+/* -----------------------
+ setting active
+ -------------------- */
+	body#pageone .menu #butt1 a {
+		background-position: 0px -120px;
+		width: 180px;
+	}
+	
+	body#pagetwo .menu #butt2 a {
+			background-position: -180px -120px;
+			width: 180px;
+	}
+	body#pagetwo .menu #butt3 a {
+			background-position: -360px -120px;
+			width: 180px;
+	}
+	body#pagethree .menu #butt4 a {
+			background-position: -540px -120px;
+			width: 180px;
+	}
+/*---------------------
+ setting footer
+ ----------------- */
+
+	.footer {
+		width: 96%;
+		height: 1%;
+		padding: 2%;
+		float: left;
+		background: black;
+	}
+	.footer p {
+		color: rgb(38, 38, 38);
+	}
+}
+
+/* ------------------------------------------
+IPAD LANDSCAPE + NOTEBOOK
+ --------------------------------------- */
+
+@media only screen and (max-width: 1024px) {
+	body {
+		background-color: red;
+	}
+}
+
+/* -----------------------------------------
+DESKTOP
+ --------------------------------------- */
+
+@media only screen and (max-width: 1200px) {
+	body {
+		background-color: green;
+	}
+	.nav img {
+		width: 5%;
+	}
+}
