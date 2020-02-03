@@ -1,5 +1,4 @@
 /* == Mobile default style - Mobile first ==== */
-@media screen and (max-width: 767px) {
 	#pageone, #pagetwo, #pagethree, #pagefour {
 		background-color: rgb(38, 38, 38);
 		font: 95% Arial, Helvetica, sans-serif;
@@ -139,7 +138,6 @@ FINISH
 	.footer p {
 		color: rgb(38, 38, 38);
 	}
-}
 /* ----------------------
 IPAD
 --------------------- */
@@ -172,7 +170,7 @@ IPAD
 
 	.content {
 		width: 96%;
-		height: 75%;
+		height: 69%;
 		padding: 2%;
 		float: left;
 		background-color: rgb(38, 38, 38);
@@ -181,7 +179,7 @@ IPAD
 	/* navigation bar setting */
 	.menu-bot {
 		width: 100%;
-		height: 9%;
+		height: 13%;
 		padding: 0 0 0 0%;
 		float: left;
 		background: black;
@@ -293,12 +291,13 @@ IPAD LANDSCAPE + NOTEBOOK
 
 @media only screen and (min-width: 992px) {
 	#pageone, #pagetwo, #pagethree, #pagefour {
-		background-color: red;
+		background-color: rgb(38, 38, 38);
 	}
 	.top {
 		background: black;
-		width: 96%;
+		width: 76%;
 		height: 9%;
+		margin: 0 10% 0 10%;
 		padding: 2% 2% 2% 2%;
 		float: left;
 	}
@@ -308,8 +307,9 @@ IPAD LANDSCAPE + NOTEBOOK
 	/* navigation bar top setting */
 	.menu-top {
 		display: block;
-		width: 98%;
-		height: 5.5%;
+		width: 78%;
+		height: 50px;
+		margin: 0 10% 0 10%;
 		padding: 0 0 0 2%;
 		float: left;
 		background: black;
@@ -400,11 +400,12 @@ IPAD LANDSCAPE + NOTEBOOK
 	------------- */
 
 	.content {
-		width: 96%;
+		width: 76%;
 		height: 70.5%;
+		margin: 0 10% 0 10%;
 		padding: 2%;
 		float: left;
-		background-color: rgb(38, 38, 38);
+		background-color: #d9d9d9;
 	}
 
 	/*---------------------
@@ -423,11 +424,12 @@ IPAD LANDSCAPE + NOTEBOOK
 	   setting footer
 	   ----------------- */
 	.footer {
-		width: 96%;
+		width: 76%;
 		height: 0.5%;
 		padding: 2%;
+		margin: 0 10% 0 10%;
 		float: left;
-		background: blue;
+		background: black;
 	}
 	.footer p {
 		color: rgb(38, 38, 38);
