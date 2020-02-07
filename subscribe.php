@@ -1,9 +1,30 @@
 <?php
-session_start();
-include 'db/database.php'
-include 'mail.php';
+include 'db/database.php';
 
-if (isset($_COOKIE['logged_in']) && !empty($_COOKIE['logged_in']))
+// define the variables and set to empty values
+$emailErr = $nameErr = $passErr = "";
+$email = $name = $username = $pass = $rpass = $date = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if (empty($_POST["name"])) {
+		$nameErr = "Name and Surname are required";
+	} else {
+		$name = test_input($_POST["name"]);
+// check if the name only contains letters and whitespace
+	if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+		$nameErr = "Only letters and white space allowed! No special character.";
+		}
+	}
+	if (empty($_POST["email"])) {
+		$emailErr = "Email is required";
+	} else {
+		$email = test_input($_POST["email");
+		// check if the email is well-formated
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$emailErr = "Invalid email format";
+		}
+	}
+	
 ?>
 <html>
 <head>
@@ -35,7 +56,8 @@ if (isset($_COOKIE['logged_in']) && !empty($_COOKIE['logged_in']))
 		}
 		#sub input[type="email"],
 		#sub input[type="text"],
-		#sub input[type="password"]
+		#sub input[type="password"],
+		#sub input[type="date"]
 		{
 			-webkit-transition: all 0.30s ease-in-out;
 			-moz-transition: all 0.30s ease-in-out;
@@ -58,6 +80,7 @@ if (isset($_COOKIE['logged_in']) && !empty($_COOKIE['logged_in']))
 
 		#sub input[type="email"]:focus,
 		#sub input[type="text"]:focus,
+		#sub input[type="date"]:focus,
 		#sub input[type="password"]:focus {
 			box-shadow: 0 0 5px #43D1AF;
 			padding: 3%;
@@ -128,15 +151,17 @@ if (isset($_COOKIE['logged_in']) && !empty($_COOKIE['logged_in']))
 			<form action='./register.php' method='POST'>
 				</br><input placeholder="Email*"  required="true" name="email" type="email" value="" />
 				</br><input placeholder="Name and Surname*" required="true" name="name" type="text" value=""/>
-				</br><input placeholder="Username*" required="true" name="username" type="text" value=""/>
+				</br><input placeholder="Username" required="true" name="username" type="text" value=""/>
 				</br><input placeholder="Password*" required="true" name="password" type="password" value=""/>
 				</br><input placeholder="Repeat Password*" required="true" name="rpassword" type="password" value=""/>
+				
+				</br><input placeholder="Birthdate" name="bdate" type="date" value=""/>
 				</br><input type="submit" name="singup" value="Subscribe"></input> 
 			</form>
 		</center>
 		</div>
 		<div id="login">
-			<p>Do you have an account? <a href="./login.html">Log in</a></p>
+			<p>Do you have an account? <a href="./login.php">Log in</a></p>
 		</div>
 	</div>
 	<div class="footer">
