@@ -1,0 +1,3 @@
+CREATE USER 'alfiumic'@'%' IDENTIFIED BY 'Alfiumic3.';
+GRANT ALL PRIVILEGES ON *.* TO 'alfiumic'@'%';
+

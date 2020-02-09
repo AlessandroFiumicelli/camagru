@@ -1,0 +1,2 @@
+mysql -u root -p;
+SHOW GRANTS FOR 'database_user'@'$2'
