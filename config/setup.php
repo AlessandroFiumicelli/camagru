@@ -1,8 +1,8 @@
 <?php
-$pdo = new PDO($DB_DNS_SETUP, $DB_USER, $DB_PASSWORD);
+$pdo = new PDO($DB_DNS_SETUP, $DB_CREATOR, $DB_CREATOR_PSW);
 $pdo->query("DROP DATABASE IF EXISTS camagru");
 $pdo->query("CREATE DATABASE IF NOT EXISTS camagru");
-$pdo = new PDO ($DB_DSN, $DB_USER, $DB_PASSWORD);
+$pdo = new PDO ($DB_DSN, $DB_CREATOR, $DB_CREATOR_PSW;
 $sql_us = "CREATE TABLE `users` (
 			`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 			`username` VARCHAR(11) DEFAULT "Jhon Doe",
