@@ -1,6 +1,31 @@
 <?php
-include 'db/database.php';
+include 'config/database.php';
+if (isset($_COOKIE['logged_in']) && !empty($_COOKIE['logged_in']))
+	header('location: index.php');
+if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['c_passwd']) && !empty($_POST['c_passwd']) && $_POST['password'] === $_POST['c_passwd'] && !preg_match('/%|%/', $_POST['email']) && !preg_match('/%&%/', $_POST['email']) && !preg_match('/%;%/', $_POST['email']) && !preg_match('/% %/', $_POST['email'])){
+	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+	$sql = "SELECT login, email FROM users WHERE login = ? OR email = ?";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute([$_POST['login'], $_POST['email']]);
+	$exst = $stmt->fetch(PDO::FETCH_ASSOC);
+	if ((isset($exst['login']) && !empty($exst['login'])) || (isset($exst['email']) && !empty($exst['email']))){
+		$_SESSION['error'] = '1';
+	}
+	if (!isset($_SESSION['error']) || empty($_SESSION['error'])){
+		$sql = "INSERT INTO users(login, email, password, token) VALUES (?, ?, ?, ?)";
+		$stmt = $pdo->prepare($sql);
+		$token = uniqid(rand(), true);
+		$passwd = hash('whirlpool', $_POST['password']);
+		$stmt->execute([$_POST['login'], $_POST['email'], $passwd, $token]);
+		$msg = "To: ".$_POST['email']."\nSubject: Verification\n\n".$token."\n";
+		exec("echo '".$msg."' > mail.txt");
+		exec("sendmail -vt < mail.txt");
+		exec("rm mail.txt");
+		$_SESSION['register'] = '1';
+	}
+}
 
+/*
 // define the variables and set to empty values
 $emailErr = $nameErr = $passErr = "";
 $email = $name = $username = $pass = $rpass = $date = "";
@@ -24,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$emailErr = "Invalid email format";
 		}
 	}
-	
+ */	
 ?>
 <html>
 <head>
@@ -151,12 +176,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<form action='./register.php' method='POST'>
 				</br><input placeholder="Email*"  required="true" name="email" type="email" value="" />
 				</br><input placeholder="Name and Surname*" required="true" name="name" type="text" value=""/>
-				</br><input placeholder="Username" required="true" name="username" type="text" value=""/>
+				</br><input placeholder="Username" required="true" name="login" type="text" value=""/>
 				</br><input placeholder="Password*" required="true" name="password" type="password" value=""/>
-				</br><input placeholder="Repeat Password*" required="true" name="rpassword" type="password" value=""/>
+				</br><input placeholder="Repeat Password*" required="true" name="c_passwd" type="password" value=""/>
 				
 				</br><input placeholder="Birthdate" name="bdate" type="date" value=""/>
-				</br><input type="submit" name="singup" value="Subscribe"></input> 
+				</br><input type="submit" name="singup" value="Subscribe"></input>
+				<span>
+				<?php
+					if (isset($_SESSION['error']) && !empty($_SESSION['error']) && $_SESSION['error'] === '1') {
+						echo "User or mail already in user";
+						$_SESSION['error']='0';
+					}
+					else if (isset($_SESSION['register']) && !empty($_SESSION['register']) && $_SESSION['register'] === '1') {
+						echo "Check mail";
+						$_SESSION['register'] = '0';
+					}
+?>
+				</span>
 			</form>
 		</center>
 		</div>
