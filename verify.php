@@ -1,24 +1,22 @@
 <?php
-	session_start();
+session_start();
 	include 'includes/database.php';
 	if (isset($_COOKIE['logged_in']) && !empty($_COOKIE['logged_in']))
+		header('Location: index.php');
+	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+	$sql = "UPDATE `users` SET `verified` = 'Y' WHERE `login` = ?";
+	$stmt = $pdo->prepare($sql);
+	if (isset($_POST['token']) && !empty($_POST['token'])){
+		if ($_POST['token'] === $_SESSION['token'])
+			$_SESSION['verified'] = '1';
+	}
+	if (isset($_SESSION['verified']) && !empty($_SESSION['verified'])){
+		$stmt->execute([$_SESSION['login']]);
+		setcookie('logged_in', $_SESSION['login'], 0);
+		$_SESSION['verified'] = '';
+		$_SESSION['login'] = '';
+		$_SESSION['token'] = '';
 		header("Location: index.php");
-	if (isset($_POST['user']) && !empty($_POST['user']) && isset($_POST['password']) && !empty($_POST['password'])){
-		$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-		$sql = "SELECT login, password, token, verified FROM users WHERE login = ? AND password = ?";
-		$stmt = $pdo->prepare($sql);
-		$psswd = hash('whirlpool', $_POST['password']);
-		$stmt->execute([$_POST['user'], $psswd]);
-		$user = $stmt->fetch(PDO::FETCH_ASSOC);
-		if (isset($user['login']) && !empty($user['login']) && $user['verified'] == 'Y'){
-			setcookie('logged_in', $user['login'], 0);
-			header('Location: index.php');
-		}
-		else if (isset($user['login']) && !empty($user['login'])){
-			$_SESSION['login'] = $user['login'];
-			$_SESSION['token'] = $user['token'];
-			header('Location: verify.php');
-		}
 	}
 ?>
 <html>
@@ -143,12 +141,11 @@
 		<div id="login">
 		<center>
 			<img class="logo" src="./img/Camagru_logo_b.png" alt="Camagru">
-			<p>Snap with any device.</p>
-			<form action='./register.php' method='POST'>
-				</br><input placeholder="Email*"  required="true" name="email" type="email" value="" />
-				</br><input placeholder="Password*" required="true" name="password" type="password" value=""/>
-				</br><input type="submit" name="login" value="Log in"></input> 
-			</form>
+			<p>Insert your token for activate your account.</p>
+<form action='./verify.php' method='POST'>
+					<font size="3vw">Token</font></br><input type='text' name='token'></input></br>
+					<input type='submit' name='verify' value='verify'></input>
+				</form>
 		</center>
 		</div>
 		<div id="subscribe">
