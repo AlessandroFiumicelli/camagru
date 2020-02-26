@@ -2,21 +2,20 @@
 	<head>
 		<title>Camagru</title>
 		<link rel="stylesheet" type="text/css" href="./style/reset.css">
-		<link rel="stylesheet" type="text/css" href="./style/style2.css" >
-		<meta name="viewport" content-"width=device-width, initial-scale=1">
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">	
+		<link rel="stylesheet" type="text/css" href="./style/style.css" >
+		<meta name="viewport" content-"width=device-width, initial-scale=1">	
 	</head>
 <body id="pagetwo">
+	<div class="wrapper">
 <?php
-require "include/nav_top2.php";
+require "include/nav_top.php";
 ?>
-	<div class="content">
-		<div class="img">
+		<div class="mainbody">
+			
 		</div>
-		<div class="attributes">
-		</div>
-		<div class="comments">
-		</div>
-	</div><meta name="viewport" content-"width=device-width, initial-scale=1">
+<?php
+require "include/nav_bot.php";
+?>
+	</div>		
 </body>
 </html>

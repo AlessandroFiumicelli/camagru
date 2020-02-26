@@ -7,8 +7,8 @@ $DB_NAME = 'camagru';
 $DB_PASSWORD = '@Alfiumic1';
 $DB_DSN_SETUP = 'mysql:host='.$DB_HOST.';';
 $DB_DSN = 'mysql:host='.$DB_HOST.';dbname='.$DB_NAME.';';
-$check = file_get_contents("installed");
+$check = file_get_contents("../installed");
 if ($check != '1'){
-	include 'config/setup.php';
+	include 'setup.php';
 }
 ?>

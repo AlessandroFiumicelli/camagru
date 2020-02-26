@@ -9,22 +9,19 @@ include "config/database.php";
 		<link rel="stylesheet" type="text/css" href="./style/style.css" >
 		<meta name="viewport" content-"width=device-width, initial-scale=1">
 	</head>
+
+<body id="pageone">
+	<div class="wrapper">
 <?php
 require "include/nav_top.php";
 ?>
 
-<body id="pageone">
-	<div class="content">
-		<div class="img">
+		<div class="mainbody">
+			<iframe src="show_images.php" width="100%" height="100%"></iframe>
 		</div>
-		<div class="attributes">
-		</div>
-		<div class="comments">
-		</div>
-	</div><meta name="viewport" content-"width=device-width, initial-scale=1">
 <?php
 require "include/nav_bot.php";
 ?>
-
+	</div>
 </body>
 </html>
