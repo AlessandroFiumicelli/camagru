@@ -1,0 +1,172 @@
+/* == Mobile default style - Mobile first ==== */
+
+#bg_sing {
+	display: none;
+}
+
+.form-2 {
+	display: block;
+	width: 70%;
+	margin: 3% auto 0% auto;
+	padding: 2% 2% 2% 2%;
+	background-color: #FFFAF0;
+	border: 0.1px solid;
+	border-color: rgb(38, 38, 38);
+	border-radius: 3px;
+	opacity: 0.9;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-2 p {
+	font-size: 2em;
+}
+
+.form-2 h1 {
+	font-size: 2.5em;
+}
+.form-2 h5 {
+	font-size: 1em;
+	color: rgba(255, 0, 0, 1);;
+}
+
+.form-2 input[type="email"],
+.form-2 input[type="text"],
+.form-2 input[type="password"],
+.form-2 input[type="date"] {
+-webkit-transition: all 0.30s ease-in-out;
+-moz-transition: all 0.30s ease-in-out;
+-ms-transition: all 0.30s ease-in-out;
+-o-transition: all 0.30s ease-in-out;
+outline: none;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+width: 70%;
+background: #fff;
+margin-bottom: 4%;
+border: 1px solid #ccc;
+padding: 3%;
+border-radius: 3px;
+color: #555;
+font-size: 2em;
+}
+
+.form-2 input[type="email"]:focus,
+.form-2 input[type="text"]:focus,
+.form-2 input[type="password"]:focus,
+.form-2 input[type="date"]:focus {
+	box-shadow: 0 0 5px #43D1AF;
+	padding: 3%;
+	border: 1px solid #43D1AF;
+	border-radius: 3px;
+}
+
+.form-2 input[type="submit"],
+.form-2 input[type="botton"] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 70%;
+    padding: 3%;
+    background: #2471FF;
+    border-radius: 3px;
+    border-bottom: 3px solid #5994FF;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #D2E2FF;
+    font-size: 2em;
+}
+
+.error p {
+	font-size: 0.8em;
+	color: rgb(38, 38, 38)
+}
+
+/* ------------------------------------------
+		IPAD LANDSCAPE + NOTEBOOK
+------------------------------------------ */
+
+@media only screen and (min-width: 992px) {
+#bg_sing {
+	display: block;
+	width: 30%;
+	margin: 3% 0 1% 5%;
+}
+
+#bg_sing img {
+			margin:5% 5% 5% 5%;
+			width: 100%;
+			float: left;
+		}
+.form-2 {
+	display: block;
+	float: right;
+	width: 50%;
+	margin: 3% 6% 1% 0%;
+	padding: 2% 2% 2% 2%;
+	background-color: #FFFAF0;
+	border: 0.1px solid;
+	border-color: rgb(38, 38, 38);
+	border-radius: 3px;
+	opacity: 0.9;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-2 p {
+	font-size: 1em;
+}
+
+.form-2 h1 {
+	font-size: 1.5em;
+}
+
+.form-2 h5 {
+	color: rgba(255, 0, 0, 1);;
+}
+
+.form-2 input[type="email"],
+.form-2 input[type="text"],
+.form-2 input[type="password"],
+.form-2 input[type="date"] {
+-webkit-transition: all 0.30s ease-in-out;
+-moz-transition: all 0.30s ease-in-out;
+-ms-transition: all 0.30s ease-in-out;
+-o-transition: all 0.30s ease-in-out;
+outline: none;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+width: 50%;
+background: #fff;
+margin-bottom: 4%;
+border: 1px solid #ccc;
+padding: 3%;
+border-radius: 3px;
+color: #555;
+font-size: 1em;
+}
+
+.form-2 input[type="submit"],
+.form-2 input[type="botton"] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 50%;
+    padding: 3%;
+    background: #2471FF;
+    border-radius: 3px;
+    border-bottom: 3px solid #5994FF;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #D2E2FF;
+    font-size: 1em;
+}
+.error p {
+	font-size: 0.8em;
+	color: rgb(38, 38, 38)
+}
+}

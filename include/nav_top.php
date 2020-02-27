@@ -30,7 +30,7 @@
 			<div class="header-text2">
 				<a href="<?php echo $hreflog2; ?>"><p><?php echo $log2; ?></p></a>
 			</div>
-		</div>
+		</div><!-- end heder  -->
 		
 		<div class="navbar">
 			<ul>
@@ -39,4 +39,4 @@
 				<li id="butt7"><a href="./profile.php"><img src="./img/profile_b.png" alt="profile"></a></li>
 				<li id="butt8"><a href="./search.php"><img src="./img/search_b.png" alt="search"></a></li>
 			</ul>
-		</div>
+		</div><!-- end navbar  -->

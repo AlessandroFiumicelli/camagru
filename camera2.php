@@ -31,7 +31,7 @@ require "include/nav_top.php";
 
 			<!-- Image output -->
 			<div class="output">
-				<img id="photo" src="" alt="The screen capure will appear in this box.">
+				<img id="photo" alt="The screen capure will appear in this box.">
 			</div>
 			<!-- Save the immage --!>
 			<?php $form->open(["action" => "./camera.php", "name" => "form1"]);?>

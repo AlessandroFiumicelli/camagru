@@ -2,7 +2,7 @@
 	<head>
 		<title>Camagru</title>
 		<link rel="stylesheet" type="text/css" href="./style/reset.css">
-		<link rel="stylesheet" type="text/css" href="./style/style.css" >
+		<link rel="stylesheet" type="text/css" href="./style/style_template.css" >
 		<meta name="viewport" content-"width=device-width, initial-scale=1">
 	</head>
 <body id="pagethree">
