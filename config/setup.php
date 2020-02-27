@@ -34,9 +34,23 @@ $sql_cmt = "CREATE TABLE `comments` (
 				FOREIGN KEY (user_id) REFERENCES users(id),
 				FOREIGN KEY (img_id) REFERENCES images(id))";
 
+$sql_category = "CREATE TABLE `category` (
+					`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+					`name` VARCHAR(20) NOT NULL,
+					`creation_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP";
+
+$sql_super = "CREATE TABLE `super` (
+					`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+					`cat_id` INT(11) NOT NULL,
+					`img` VARCHAR(100) NOT NULL,
+					`creation_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+					FOREIGN KEY (cat_id) REFERENCES category(id))";
+
 $pdo->exec($sql_usrs);
 $pdo->exec($sql_imgs);
 $pdo->exec($sql_likes);
 $pdo->exec($sql_cmt);
+$pdo->exec($sql_category);
+$pdo->exec($sql_super);
 file_put_contents("installed", "1");
 ?>
