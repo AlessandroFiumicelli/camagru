@@ -16,19 +16,19 @@
  		}
  */
 
-	if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']    ) && !empty($_POST['password'])){
+	if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
 		$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-		$sql = "SELECT id, email, password, token, verified, login FROM users WHERE e    mail = ? AND password = ?";
+		$sql = "SELECT id, email, password, token, verified, login FROM users WHERE email = ? AND password = ?";
 		$stmt = $pdo->prepare($sql);
 		$psswd = hash('whirlpool', $_POST['password']);
  		$stmt->execute([$_POST['email'], $psswd]);
 		$user = $stmt->fetch(PDO::FETCH_ASSOC);
- 			if (isset($user['email']) && !empty($user['email']) && $user['verified'] == '    Y'){
+ 			if (isset($user['email']) && !empty($user['email']) && $user['verified'] == 'Y'){
  				setcookie('logged_in', $user['login'], 0);
  				setcookie('email', $_POST['email'], 0);
  				setcookie('id', $user['id'], 0);
  				header('Location: index.php');
-			} else if (!(isset($user['email'])) && empty($user['email']) && !(isset($user    ['password'])) && empty($user['password'])){
+			} else if (!(isset($user['email'])) && empty($user['email']) && !(isset($user['password'])) && empty($user['password'])){
  				$_SESSION['error'] = "Password or email doesn't exists.";
 			}
 	}

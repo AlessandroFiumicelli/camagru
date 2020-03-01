@@ -37,7 +37,7 @@ $sql_cmt = "CREATE TABLE `comments` (
 $sql_category = "CREATE TABLE `category` (
 					`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 					`name` VARCHAR(20) NOT NULL,
-					`creation_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP";
+					`creation_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
 
 $sql_super = "CREATE TABLE `super` (
 					`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

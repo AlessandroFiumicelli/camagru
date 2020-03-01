@@ -101,8 +101,81 @@ Class Form {
 		echo '<input'.$type,$name,$id,$class,$placeholder,$required,$size,$value.' />'.PHP_EOL;		
 	}
 	
+	public function option($option){
+		if (isset($option) && !empty($option)){
+			$i = 0;
+			foreach ($option as $key => $val) {
+				
+				if (isset($option[$i]) && !empty($option[$i])){
+					if 
+					(isset($option[$i]['name']) && !empty($option[$i]['name']))
+						$caption = $option[$i]['name'];
+					else
+						$caption = 'placeholder';
+					if (isset($option[$i]['id']) && !empty($option[$i]['id']))
+						$id = ' id="'.$option[$i]['id'].'"';
+					else
+						$id = '';
+					if (isset($option[$i]['value']) && !empty($option[$i]['value']))
+						$value = ' value="'.$option[$i]['value'].'"';
+					else
+						$value = ' value="'.$option[$i]['id'].'"';
+				} else {
+					$caption = 'placeholder';
+					$id = '';
+					$value = 'placeholedr';
+					}
+				echo '<option'.$id,$value.'>'.$caption.'</option>'.PHP_EOL;
+				$i++;
+			}
+		} else {
+		$caption = 'placeholder';
+		$id = '';
+		$value = 'placeholedr';
+		echo '<option'.$id,$value.'>'.$caption.'</option>'.PHP_EOL;	
+		}
+	}
+	
+	public function select($attr, $option){
+			if (isset($attr) && !empty($attr)){
+				if (isset($attr['name']) && !empty($attr['name']))
+					$name = ' name="'.$attr['name'].'"';
+				else
+					$name = '';
+				if (isset($attr['id']) && !empty($attr['id']))
+					$id = ' id="'.$attr['id'].'"';
+				else
+					$id = '';
+				if (isset($attr['class']) && !empty($attr['class']))
+					$class = ' class="'.$attr['class'].'"';
+				else
+					$class = '';
+				if (isset($attr['required']) && !empty($attr['required']))
+					$required = ' required="'.$attr['required'].'"';
+				else
+					$required = '';
+				if (isset($attr['form']) && !empty($attr['form']))
+					$form = ' form="'.$attr['form'].'"';
+				else
+					$form = '';
+				
+			} else {
+			$name = '';
+			$id = '';
+			$class = '';
+			$required = '';
+			$placeholder = '';
+			}
+		echo '<select'.$name,$id,$class,$required,$form.' />'.PHP_EOL;
+		$this->option($option);
+	}
+	
 	public function submit($attr){
 		if (isset($attr) && !empty($attr)){
+			if (isset($attr['style']) && !empty($attr['style']))
+				$style = ' style="'.$attr['style'].'"';
+			else
+				$style = '';
 			if (isset($attr['id']) && !empty($attr['id']))
 					$id = ' id="'.$attr['id']."";
 			else
@@ -120,6 +193,7 @@ Class Form {
 			else
 					$value = '';
 		} else {
+			$style = '';
 			$id = '';
 			$class = '';
 			$name = '';
@@ -127,7 +201,7 @@ Class Form {
 		}
 		$h_val = ' value="'.$this->chk.'"';
 		echo '</br><input type="hidden" name="chk"'.$h_val.' />'.PHP_EOL;
-		echo '</br><input type="submit"'.$name,$id,$class,$value.' />'.PHP_EOL;
+		echo '</br><input type="submit"'.$style,$name,$id,$class,$value.' />'.PHP_EOL;
 	}
 }
 ?>

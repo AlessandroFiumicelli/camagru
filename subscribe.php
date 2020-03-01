@@ -26,7 +26,7 @@ require "include/nav_top.php";
 				</br>
 				</br>
 				<h5>*Required field</h5>
-				<?php $form->open(["action" => "./login.php"]);?>
+				<?php $form->open(["action" => "subscribe.php"]);?>
 					</br><?php $form->input(["type" => "email", "name" => "email", "placeholder" => "*Email", "required" => "true"]);?>
 					</br>
 					</br><?php $form->input(["name" => "login", "placeholder" => "Username"]);?>
