@@ -1,0 +1,96 @@
+/* == Mobile default style - Mobile first ==== */
+
+	.Animal {
+		display: none;
+	}
+	
+	.Clothes {
+		display: none;
+	}
+
+	.Emoji {
+		display: none;
+	}
+	
+	.Stickers {
+		display: none;
+	}
+
+/* ------------------------------------------
+		IPAD LANDSCAPE + NOTEBOOK
+------------------------------------------ */
+
+@media only screen and (min-width: 992px) {
+
+	#super {
+		width: 70%;
+		height: 15%;
+		margin: 2% auto 2% auto;
+	}
+
+	#output_super {
+		width: 40%;
+		height: 30%;
+		margin: 2% 30% 2% 30%;
+	}
+	
+	.Clothes {
+		display: none;
+	}
+
+	.Emoji {
+		display: none;
+	}
+	
+	.Stickers {
+		display: none;
+	}
+
+	.Visible {
+		display: block;
+		width: 100px;
+		height: 100px;
+	}
+
+	.camera-wrap {
+		width: 70%;
+		margin: 2% auto 2% auto;
+	}
+	
+	#video {
+		width: 68%;
+		margin: 0 20% 0 20%;
+	}
+
+	.output {
+		width: 70%;
+		margin: 2% auto 2% auto;
+	}
+
+	.output img {
+		margin: 0 20% 0 20%;
+	}
+	.form-1 p {
+		font-size: 2em;
+	}
+
+	#mySelect,
+	.form-1 input[type="submit"],
+	.form-1 input[type="botton"] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 40%;
+	margin: 2% 30% 2% 30%;
+    padding: 3%;
+    background: #2471FF;
+    border-radius: 3px;
+    border-bottom: 3px solid #5994FF;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #D2E2FF;
+    font-size: 2em;
+}
+	
+}

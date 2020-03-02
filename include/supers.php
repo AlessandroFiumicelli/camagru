@@ -1,7 +1,7 @@
 <?php
 
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-	$sql = "SELECT `img`, `id` FROM super";
+	$sql = "SELECT `img`, `id`, `cat_id` FROM super";
 	$stmt = $pdo->prepare($sql);		
 	$stmt->execute();
 	$supers = $stmt;
@@ -15,7 +15,15 @@
 			print_r($supers);
 		}
 		foreach ($tmp as $key => $val){
-			echo '<div id="'.$val["id"].'"><img src="'.$val["img"].'" class="super"></div>';
+			if ($val["cat_id"] == 1)
+				$cat = "Animal";
+			else if ($val["cat_id"] == 2)
+				$cat = "Clothes";
+			else if ($val["cat_id"] == 3)
+				$cat = "Emoji";
+			else if ($val["cat_id"] == 4)
+				$cat = "Stickers";
+			echo '<div class="'.$cat.'"><img src="'.$val["img"].'" id="s'.$val["id"].'"></div>';
 		}
 	} else {
 		echo "0 result";		}

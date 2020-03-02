@@ -138,6 +138,10 @@ Class Form {
 	
 	public function select($attr, $option){
 			if (isset($attr) && !empty($attr)){
+				if (isset($attr['onclick']) && !empty($attr['onclick']))
+					$onclick = ' onclick="'.$attr['onclick'].'"';
+				else
+					$onclick = '';
 				if (isset($attr['name']) && !empty($attr['name']))
 					$name = ' name="'.$attr['name'].'"';
 				else
@@ -165,8 +169,9 @@ Class Form {
 			$class = '';
 			$required = '';
 			$placeholder = '';
+			$onclick = '';
 			}
-		echo '<select'.$name,$id,$class,$required,$form.' />'.PHP_EOL;
+		echo '<select'.$name,$id,$class, $onclick,$required,$form.' />'.PHP_EOL;
 		$this->option($option);
 	}
 	

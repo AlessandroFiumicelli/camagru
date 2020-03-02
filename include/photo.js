@@ -19,3 +19,45 @@
 		document.getElementById('hid').value = photo.src;
 	});
 })();
+
+(function(){
+	var Animal = document.getElementById('s1');
+	var Clothes = document.getElementById('s2');
+	var Emoji = document.getElementById('s3');
+	var Stickers = document.getElementById('s4');
+	
+	function getOption() {
+		var obj = document.getElementById("mySelect");
+		var selected  = obj.options[obj.selectedIndex].text;
+
+		if (selceted == "Animal") {
+			var x = document.getElementByClassName("Animal");
+			var y = 0;
+			while (x[y]) {
+				x[y].classList.replace("Animal", "Visible");
+				y++;
+			}
+		} else if (selceted == "Clothes") {
+			var x = document.getElementByClassName("Clothes");
+			var y = 0;
+			while (x[y]) {
+				x[y].classList.replace("Clothes", "Visible");
+				y++;
+			}
+		} else if (selceted == "Emoji") {
+			var x = document.getElementByClassName("Emoji");
+			var y = 0;
+			while (x[y]) {
+				x[y].classList.replace("Emoji", "Visible");
+				y++;
+			}
+		} else if (selceted == "Stickers") {
+			var x = document.getElementByClassName("Stickers");
+			var y = 0;
+			while (x[y]) {
+				x[y].classList.replace("Stickers", "Visible");
+				y++;
+			}
+		}
+	}
+})
